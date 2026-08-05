@@ -7,6 +7,7 @@
 header,
 footer {
   background-color: var(--accent-bg);
+  padding: var(--space-md);
 }
 
 main {
@@ -14,7 +15,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 24px;
+  padding: var(--space-md);
 }
 
 .workspace {
@@ -22,6 +23,12 @@ main {
   max-width: 1200px;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
+}
+
+.form-panel {
+  background-color: var(--accent-bg);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius-md);
 }
 
 footer > p,

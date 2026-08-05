@@ -1,6 +1,24 @@
+import { useState } from "react";
+import { CVFormPanel } from "./components/CVFormPanel.jsx";
 import "./styles/App.css";
 
 function App() {
+  const [savedData, setSavedData] = useState({
+    personalInfo: {},
+    education: {},
+    experience: {},
+    technicalProjects: {},
+    skills: {},
+    awards: {},
+  });
+
+  function handleSaveSection(sectionName, sectionData) {
+    setSavedData((previousData) => ({
+      ...previousData,
+      [sectionName]: sectionData,
+    }));
+  }
+
   return (
     <>
       <header>
@@ -8,6 +26,7 @@ function App() {
       </header>
       <main>
         <div className="workspace"></div>
+        <CVFormPanel onSaveSection={handleSaveSection} />
       </main>
       <footer>
         <p>
