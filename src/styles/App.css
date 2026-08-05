@@ -11,4 +11,34 @@ footer {
 
 main {
   background-color: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px;
+}
+
+.workspace {
+  width: 75%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+}
+
+footer > p,
+.footer-link {
+  color: var(--text-h);
+}
+
+.footer-link {
+  font-weight: 600;
+}
+
+.footer-link:hover,
+.footer-link:focus-visible {
+  color: var(--text);
+}
+
+.footer-link:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
 }
