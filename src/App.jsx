@@ -3,6 +3,7 @@ import { CVFormPanel } from "./components/CVFormPanel.jsx";
 import "./styles/App.css";
 
 function App() {
+  // Lifted state from all the individual form components, used for preview.
   const [savedData, setSavedData] = useState({
     personalInfo: {},
     education: {},
@@ -12,6 +13,7 @@ function App() {
     awards: {},
   });
 
+  // Callback for sections to save their data into the apps state
   function handleSaveSection(sectionName, sectionData) {
     setSavedData((previousData) => ({
       ...previousData,

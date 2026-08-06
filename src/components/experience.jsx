@@ -1,0 +1,89 @@
+import { useState } from "react";
+
+export function Experience({ onSaveSection }) {
+  const [experience, setExperience] = useState([]);
+
+  function handleChange(id, event) {
+    const { name, value } = event.target;
+
+    setExperience((prevExperience) =>
+      prevExperience.map((job) => {
+        if (job.id === id) {
+          return {
+            ...job,
+            [name]: value,
+          };
+        }
+
+        return job;
+      }),
+    );
+  }
+
+  function handleAddNewExperience() {
+    const newExperience = {
+      id: crypto.randomUUID(),
+      company: "",
+      role: "",
+      startDate: "",
+      endDate: "",
+    };
+
+    setExperience((prevExperience) => [...prevExperience, newExperience]);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    onSaveSection("experience", experience);
+  }
+
+  return (
+    <form className="form-card" onSubmit={handleSubmit}>
+      {experience.map((job) => (
+        <fieldset key={job.id}>
+          <legend>Experience:</legend>
+          <label htmlFor={`company-${job.id}`}>Company:</label>
+          <input
+            id={`company-${job.id}`}
+            type="text"
+            name="company"
+            value={job.company}
+            onChange={(event) => handleChange(job.id, event)}
+          />
+
+          <label htmlFor={`role-${job.id}`}>Role:</label>
+          <input
+            id={`role-${job.id}`}
+            type="text"
+            name="role"
+            value={job.role}
+            onChange={(event) => handleChange(job.id, event)}
+          />
+
+          <label htmlFor={`start-${job.id}`}>Start Date:</label>
+          <input
+            id={`start-${job.id}`}
+            type="month"
+            name="startDate"
+            value={job.startDate}
+            onChange={(event) => handleChange(job.id, event)}
+          />
+
+          <label htmlFor={`end-${job.id}`}>End Date:</label>
+          <input
+            id={`end-${job.id}`}
+            type="month"
+            name="endDate"
+            value={job.endDate}
+            onChange={(event) => handleChange(job.id, event)}
+          />
+        </fieldset>
+      ))}
+      <button type="button" onClick={handleAddNewExperience}>
+        Add Another Experience
+      </button>
+      <button type="submit">Save</button>
+    </form>
+  );
+}
