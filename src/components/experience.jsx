@@ -27,6 +27,7 @@ export function Experience({ onSaveSection }) {
       role: "",
       startDate: "",
       endDate: "",
+      desc: "",
     };
 
     setExperience((prevExperience) => [...prevExperience, newExperience]);
@@ -40,9 +41,9 @@ export function Experience({ onSaveSection }) {
 
   return (
     <form className="form-card" onSubmit={handleSubmit}>
-      {experience.map((job) => (
+      {experience.map((job, index) => (
         <fieldset key={job.id}>
-          <legend>Experience:</legend>
+          <legend>Experience {index + 1}:</legend>
           <label htmlFor={`company-${job.id}`}>Company:</label>
           <input
             id={`company-${job.id}`}
@@ -77,6 +78,17 @@ export function Experience({ onSaveSection }) {
             name="endDate"
             value={job.endDate}
             onChange={(event) => handleChange(job.id, event)}
+          />
+          <label htmlFor={`desc-${job.id}`}>
+            Description (seperate each bullet point by a new line):
+          </label>
+          <textarea
+            name="desc"
+            id={`desc-${job.id}`}
+            value={job.desc}
+            onChange={(event) => handleChange(job.id, event)}
+            maxLength={300}
+            rows={4}
           />
         </fieldset>
       ))}
