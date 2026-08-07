@@ -208,6 +208,14 @@ main {
   outline-offset: var(--focus-offset);
 }
 
+.entry-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
 .cv-preview {
   width: 100%;
   max-width: 850px;

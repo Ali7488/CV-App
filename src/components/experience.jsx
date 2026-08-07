@@ -38,12 +38,28 @@ export function Experience({ onSaveSection }) {
 
     onSaveSection("experience", experience);
   }
+  function handleExperienceDelete(id) {
+    setExperience((prevExperience) =>
+      prevExperience.filter((job) => job.id !== id),
+    );
+  }
 
   return (
     <form className="form-card" onSubmit={handleSubmit}>
       {experience.map((job, index) => (
         <fieldset key={job.id}>
-          <legend>Experience {index + 1}:</legend>
+          <legend className="entry-header">
+            <span>Experience {index + 1}:</span>
+
+            <button
+              type="button"
+              className="delete-btn"
+              aria-label={`Delete experience ${index + 1}`}
+              onClick={() => handleExperienceDelete(job.id)}
+            >
+              ×
+            </button>
+          </legend>
           <label htmlFor={`company-${job.id}`}>Company:</label>
           <input
             id={`company-${job.id}`}

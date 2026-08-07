@@ -40,11 +40,26 @@ export function Education({ onSaveSection }) {
     onSaveSection("education", education);
   }
 
+  function handleEntryDelete(id) {
+    setEducation((prevEntry) => prevEntry.filter((entry) => entry.id !== id));
+  }
+
   return (
     <form className="form-card" onSubmit={handleSubmit}>
       {education.map((entry, index) => (
         <fieldset key={entry.id}>
-          <legend>Education {index + 1}:</legend>
+          <legend className="entry-header">
+            <span>Education {index + 1}:</span>
+
+            <button
+              type="button"
+              className="delete-btn"
+              aria-label={`Delete education ${index + 1}`}
+              onClick={() => handleEntryDelete(entry.id)}
+            >
+              ×
+            </button>
+          </legend>
 
           <label htmlFor={`school-${entry.id}`}>School:</label>
           <input

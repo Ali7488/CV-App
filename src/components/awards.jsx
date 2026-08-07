@@ -37,12 +37,25 @@ export function Awards({ onSaveSection }) {
     onSaveSection("awards", awards);
   }
 
+  function handleAwardDelete(id) {
+    setAwards((prevAwards) => prevAwards.filter((award) => award.id !== id));
+  }
   return (
     <form className="form-card" onSubmit={handleSubmit}>
       {awards.map((award, index) => (
         <fieldset key={award.id}>
-          <legend>Award {index + 1}</legend>
+          <legend className="entry-header">
+            <span>Award {index + 1}:</span>
 
+            <button
+              type="button"
+              className="delete-btn"
+              aria-label={`Delete award ${index + 1}`}
+              onClick={() => handleAwardDelete(award.id)}
+            >
+              ×
+            </button>
+          </legend>
           <label htmlFor={`award-title-${award.id}`}>Award:</label>
           <input
             id={`award-title-${award.id}`}

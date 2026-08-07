@@ -39,12 +39,27 @@ export function Projects({ onSaveSection }) {
     onSaveSection("projects", projects);
   }
 
+  function handleProjectDelete(id) {
+    setProjects((prevProjects) =>
+      prevProjects.filter((project) => project.id !== id),
+    );
+  }
   return (
     <form className="form-card" onSubmit={handleSubmit}>
       {projects.map((project, index) => (
         <fieldset key={project.id}>
-          <legend>Project {index + 1}:</legend>
+          <legend className="entry-header">
+            <span>Project {index + 1}:</span>
 
+            <button
+              type="button"
+              className="delete-btn"
+              aria-label={`Delete project ${index + 1}`}
+              onClick={() => handleProjectDelete(project.id)}
+            >
+              ×
+            </button>
+          </legend>
           <label htmlFor={`project-title-${project.id}`}>Project Title:</label>
           <input
             id={`project-title-${project.id}`}
