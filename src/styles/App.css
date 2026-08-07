@@ -10,8 +10,8 @@
   flex-direction: column;
 }
 
-header,
-footer {
+.app-header,
+.app-footer {
   background-color: var(--accent-bg);
   padding: var(--space-md);
 }
@@ -26,11 +26,12 @@ main {
 }
 
 .workspace {
-  width: 75%;
+  width: 90%;
   max-width: 1200px;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   gap: var(--space-lg);
+  align-items: start;
 }
 
 .form-panel {
@@ -216,28 +217,6 @@ main {
   gap: var(--space-md);
 }
 
-.cv-preview {
-  width: 100%;
-  max-width: 850px;
-  min-width: 0;
-
-  aspect-ratio: 8.5 / 11;
-
-  justify-self: center;
-  align-self: start;
-
-  background-color: #ffffff;
-  color: #111111;
-
-  padding: var(--space-xl);
-
-  border: var(--border-width) solid var(--border);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow);
-
-  overflow-wrap: anywhere;
-}
-
 footer > p,
 .footer-link {
   color: var(--text-h);
@@ -255,4 +234,38 @@ footer > p,
 .footer-link:focus-visible {
   outline: var(--focus-outline);
   outline-offset: var(--focus-offset);
+}
+
+@media (max-width: 1024px) {
+  main {
+    padding: var(--space-sm);
+  }
+
+  .workspace {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .form-panel {
+    padding: var(--space-sm);
+    gap: var(--space-sm);
+  }
+
+  .form-section-title {
+    padding: var(--space-sm);
+  }
+
+  .form-card {
+    padding: var(--space-sm);
+    gap: var(--space-sm);
+  }
+
+  .form-card fieldset {
+    padding: var(--space-sm);
+  }
+
+  .cv-preview-wrapper {
+    padding: var(--space-sm);
+  }
 }

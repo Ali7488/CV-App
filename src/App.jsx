@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { CVFormPanel } from "./components/CVFormPanel.jsx";
-import { PagePreview } from "./components/preview.jsx";
+import { CVPreview } from "./components/preview.jsx";
 import "./styles/App.css";
 
 function App() {
@@ -24,15 +24,16 @@ function App() {
 
   return (
     <>
-      <header>
+      <header className="app-header">
         <h1>CV Generator</h1>
       </header>
       <main>
-        <div className="workspace"></div>
-        <CVFormPanel onSaveSection={handleSaveSection} />
-        <PagePreview CVdata={savedData} />
+        <div className="workspace">
+          <CVFormPanel onSaveSection={handleSaveSection} />
+          <CVPreview CVData={savedData} />
+        </div>
       </main>
-      <footer>
+      <footer className="app-footer">
         <p>
           Built by:{" "}
           <a
