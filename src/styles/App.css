@@ -123,6 +123,60 @@ main {
   cursor: pointer;
 }
 
+.form-section-title button {
+  border-radius: var(--radius-lg);
+  width: 100%;
+  background: none;
+  border: none;
+  padding: var(--control-padding-x) var(--control-padding-y);
+  margin: 0;
+  color: inherit;
+  font: inherit;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.form-section-title button:hover {
+  background-color: var(--accent-border);
+  filter: brightness(1.05);
+}
+
+.form-section-title button:active {
+  filter: brightness(0.92);
+  transform: scale(0.98);
+}
+
+.accordion-arrow {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.25em;
+  line-height: 1;
+  transform: rotate(0deg);
+  transition: transform ease 400ms;
+}
+
+.accordion-arrow.open {
+  transform: rotate(180deg);
+}
+
+.form-section-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows ease 400ms;
+}
+
+.form-section-content.open {
+  grid-template-rows: 1fr;
+}
+
+.form-section-content-wrapper {
+  overflow: hidden;
+}
+
 .form-card button[type="submit"] {
   background-color: var(--accent);
   color: var(--bg);
