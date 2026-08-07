@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { CVFormPanel } from "./components/CVFormPanel.jsx";
+import { PagePreview } from "./components/preview.jsx";
 import "./styles/App.css";
 
 function App() {
   // Lifted state from all the individual form components, used for preview.
   const [savedData, setSavedData] = useState({
     personalInfo: {},
-    education: {},
-    experience: {},
-    technicalProjects: {},
-    skills: {},
-    awards: {},
+    education: [],
+    experience: [],
+    technicalProjects: [],
+    skills: "",
+    awards: [],
   });
 
   // Callback for sections to save their data into the apps state
@@ -29,6 +30,7 @@ function App() {
       <main>
         <div className="workspace"></div>
         <CVFormPanel onSaveSection={handleSaveSection} />
+        <PagePreview CVdata={savedData} />
       </main>
       <footer>
         <p>

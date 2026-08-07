@@ -1,1 +1,1 @@
-export function PagePreview() {}
+export function PagePreview({ CVdata }) {}
