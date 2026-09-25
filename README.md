@@ -1,5 +1,7 @@
 # CV Generator
 
+![CI](https://github.com/Ali7488/CV-App/actions/workflows/ci.yml/badge.svg)
+
 A responsive React application for building a structured CV from guided form inputs. Users can add repeatable education, experience, project, and award entries, then save each section into a live document preview.
 
 [Live Demo](https://cv-generator-ali7488.vercel.app/)
